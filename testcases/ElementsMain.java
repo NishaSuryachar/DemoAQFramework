@@ -1,10 +1,12 @@
 package com.Qapitol.testcases;
 
 import com.Qapitol.base.BaseClass;
+import com.Qapitol.pages.FormsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -98,6 +100,30 @@ public class ElementsMain extends BaseClass
         WebElement click = driver.findElement(By.xpath("//button[text()='Click Me']"));
         a.moveToElement(click).perform();
         click.click();
+    }
+
+    @Test
+    public void forms()
+    {
+        FormsPage fp=new FormsPage(driver);
+        fp.getFormsLink().click();
+        driver.findElement(By.xpath("//span[text()='Practice Form']")).click();
+        driver.findElement(By.id("firstName")).sendKeys("Nisha");
+        driver.findElement(By.id("lastName")).sendKeys("ms");
+        driver.findElement(By.id("userEmail")).sendKeys("nishams123@gmail.com");
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollBy(0,500)");
+        driver.findElement(By.id("userNumber")).sendKeys("7777777777");
+        driver.findElement(By.id("dateOfBirthInput")).click();
+        WebElement yearDD = driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']"));
+        Select s1=new Select(yearDD);
+        s1.selectByValue("1994");
+        WebElement monthDD = driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']"));
+        Select s2=new Select(monthDD);
+        s2.selectByValue("9");
+        driver.findElement(By.xpath("(//div[text()='9'])[1]")).click();
+        js.executeScript("window.scrollBy(0,500)");
+        driver.findElement(By.id("submit")).click();
     }
 
 

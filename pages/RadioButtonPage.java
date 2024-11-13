@@ -8,6 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RadioButtonPage
 {
+    @FindBy(xpath = "//h5[text()='Elements']")
+    private WebElement elementEdt;
+
     @FindBy(xpath = "//span[text()='Radio Button']")
     private WebElement radioButtonEdt;
 
@@ -27,8 +30,13 @@ public class RadioButtonPage
         return yesButtonEdt;
     }
 
+    public WebElement getElementEdt() {
+        return elementEdt;
+    }
+
     public void clickingRadioButton(WebDriver driver)
     {
+        elementEdt.click();
         JavascriptExecutor js=(JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,500);");
         radioButtonEdt.click();

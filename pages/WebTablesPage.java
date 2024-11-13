@@ -8,6 +8,9 @@ import org.testng.Assert;
 
 public class WebTablesPage
 {
+    @FindBy(xpath = "//h5[text()='Elements']")
+    private WebElement elementEdt;
+
     @FindBy(xpath = "//span[text()='Web Tables']")
     private WebElement webTablesLink;
 
@@ -69,8 +72,13 @@ public class WebTablesPage
         return LastNameEdt;
     }
 
+    public WebElement getElementEdt() {
+        return elementEdt;
+    }
+
     public void validatingHeaders()
     {
+        elementEdt.click();
         String ExpectedFirstName = "First Name";
         String ExpectedLastName = "Last Name";
         String ExpectedAge = "Age";

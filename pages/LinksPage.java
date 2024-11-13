@@ -7,6 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LinksPage
 {
+    @FindBy(xpath = "//h5[text()='Elements']")
+    private WebElement elementEdt;
+
     @FindBy(xpath = "//span[text()='Links']")
     private WebElement linksLinkEdt;
 
@@ -25,8 +28,14 @@ public class LinksPage
     public WebElement getFirstLinkEdt() {
         return firstLinkEdt;
     }
+
+    public WebElement getElementEdt() {
+        return elementEdt;
+    }
+
     public void clickingLink()
     {
+        elementEdt.click();
         linksLinkEdt.click();
         firstLinkEdt.click();
     }

@@ -8,6 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckBoxPage
 {
+    @FindBy(xpath = "//h5[text()='Elements']")
+    private WebElement elementEdt;
+
     @FindBy(xpath = "//span[text()='Check Box']")
     private WebElement checkBox;
 
@@ -34,8 +37,13 @@ public class CheckBoxPage
         return HomecheckBoxEdt;
     }
 
+    public WebElement getElementEdt() {
+        return elementEdt;
+    }
+
     public void clickingCheckBox(WebDriver driver)
     {
+        elementEdt.click();
         checkBox.click();
         JavascriptExecutor js=(JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,500);");

@@ -8,6 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class TextBoxPage
 {
+    @FindBy(xpath = "//h5[text()='Elements']")
+    private WebElement elementEdt;
+
     @FindBy(xpath = "(//li[@class='btn btn-light ' and @id='item-0'])[1]")
     private WebElement checkBoxEdt;
 
@@ -56,8 +59,13 @@ public class TextBoxPage
         return submitEdt;
     }
 
-    public void textBox(WebDriver driver,String firstname,String email,String currentAddress,String permanentAddress)
+    public WebElement getElementEdt() {
+        return elementEdt;
+    }
+
+    public void textBox(WebDriver driver, String firstname, String email, String currentAddress, String permanentAddress)
     {
+        elementEdt.click();
         checkBoxEdt.click();
         FirstNameEdt.sendKeys("Nisha");
         emailEdt.sendKeys("nisha@gmail.com");
