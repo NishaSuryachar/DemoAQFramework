@@ -129,11 +129,12 @@ public class FormsPage {
     }
 
     public void fillingForm(WebDriver driver,String fname,String lname,String email,String phno,String address) throws InterruptedException {
-        practiceFormEdt.click();
         firstNameEdt.sendKeys(fname);
         lastNameEdt.sendKeys(lname);
         emailEdt.sendKeys(email);
         PhNoEdt.sendKeys(phno);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollBy(0,200)");
         dob.click();
         Select s1=new Select(yearDDEdt);
         s1.selectByValue("1994");
@@ -142,6 +143,7 @@ public class FormsPage {
         getDateEdt().click();
        uploadLinkEdt.sendKeys("C:\\Users\\Qapitol\\Downloads\\sampleFile.jpeg");
        currentAddressEdt.sendKeys(address);
+        js.executeScript("window.scrollBy(0,200)");
        submitBtnEdt.click();
     }
 }

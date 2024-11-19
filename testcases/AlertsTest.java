@@ -1,9 +1,7 @@
 package com.Qapitol.testcases;
 
 import com.Qapitol.base.BaseClass;
-import com.Qapitol.pages.AlertsPage;
-import com.Qapitol.pages.BrowserWindows;
-import com.Qapitol.pages.TextBoxPage;
+import com.Qapitol.pages.*;
 import com.Qapitol.util.ExcelUtil;
 import org.testng.annotations.Test;
 
@@ -23,6 +21,20 @@ public class AlertsTest extends BaseClass
         BrowserWindows bw=new BrowserWindows(driver);
         bw.performingWindowBrowser(driver);
     }
+
+    @Test(priority = 3)
+    public void frames() throws IOException, InterruptedException {
+        FramesPage fp=new FramesPage(driver);
+        fp.performingFrames(driver);
+    }
+
+    @Test(priority = 3)
+    public void nestedFrames() throws IOException, InterruptedException {
+        NestedFramesPage nfp=new NestedFramesPage(driver);
+        nfp.performingNestedFrames(driver);
+    }
+
+
 
 
 
