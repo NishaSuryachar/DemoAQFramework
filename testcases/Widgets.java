@@ -71,16 +71,37 @@ public class Widgets extends BaseClass
     }
 
     @Test
-    public void menu() throws IOException, InterruptedException {
+    public void menu() throws IOException, InterruptedException
+    {
         WidgetsPage wp = new WidgetsPage(driver);
         wp.getWidgetsLink().click();
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,500);");
         wp.getMenuLink().click();
-        js.executeScript("window.scrollBy(0,500);");
+        Thread.sleep(2000);
         MenuPage mp=new MenuPage(driver);
         mp.performingMenu(driver);
     }
+
+    @Test
+    public void selectMenu() throws IOException, InterruptedException
+    {
+        WidgetsPage wp = new WidgetsPage(driver);
+        wp.getWidgetsLink().click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollBy(0,500);");
+        wp.getSelectMenuLink().click();
+        Thread.sleep(2000);
+        SelectMenuPage sm=new SelectMenuPage(driver);
+        sm.performingSelectMenu(driver);
+    }
+
+    @Test
+    public void se() throws IOException, InterruptedException
+    {
+       System.out.println("hello");
+    }
+
 
 
 }

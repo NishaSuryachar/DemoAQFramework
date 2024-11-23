@@ -10,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 public class MenuPage
 {
     @FindBy(xpath = "//a[text()='Main Item 2']")
-    private WebElement mainItem2Edt;
+    private WebElement menu1;
 
     @FindBy(xpath = "//a[text()='SUB SUB LIST »']")
-    private WebElement subsubListEdt;
+    private WebElement menu2;
 
-    @FindBy(xpath = "//a[text()='Sub Sub Item 1']")
-    private WebElement subsubItem2Edt;
+    @FindBy(xpath = "//a[text()='Sub Sub Item 2']")
+    private WebElement menu3;
 
     public MenuPage(WebDriver driver)
     {
@@ -28,8 +28,9 @@ public class MenuPage
         js.executeScript("window.scrollBy(0,500);");
         Thread.sleep(4000);
         Actions a = new Actions(driver);
-        a.moveToElement(mainItem2Edt).perform();
-        Thread.sleep(1000);
-        a.moveToElement(subsubListEdt).perform();
+        a.moveToElement(menu1).perform();
+        a.moveToElement(menu2).perform();
+        Thread.sleep(3000);
+        a.moveToElement(menu3).perform();
     }
 }

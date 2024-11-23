@@ -24,16 +24,16 @@ import java.util.concurrent.TimeUnit;
 public class BaseClass {
     public static WebDriver driver;
 
-   //@Parameters("browser")
+   @Parameters("browser")
     @BeforeClass
-   public void launchTheBrowser(/*String browser*/)
+   public void launchTheBrowser(String browser)
    {
-//       if (browser.equalsIgnoreCase("chrome")) {
-//           driver = new ChromeDriver();
-//       } else if (browser.equalsIgnoreCase("edge")) {
-//           driver = new EdgeDriver();
-//       }
-       driver = new ChromeDriver();
+       if (browser.equalsIgnoreCase("chrome")) {
+           driver = new ChromeDriver();
+       } else if (browser.equalsIgnoreCase("edge")) {
+           driver = new EdgeDriver();
+       }
+      // driver = new ChromeDriver();
        driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
    }
